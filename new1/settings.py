@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9e3upeg!-$$uk#d5x1dk9v1f=8ie+5adsnru1+ywsanmdt@@&9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['smdb14.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -77,11 +77,17 @@ WSGI_APPLICATION = 'new1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dg4qm7c2v3f39',
+        'USER': 'bwacomsbkzllgx',
+        'PASSWORD': '46d05f767706b6344d1f55b894b2dcff32421d478011079124358ac997413127',
+        'HOST': 'c2-54-74-156-137.eu-west-1.compute.amazonaws.com',
+        'PORT': 5432,
     }
 }
-
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)   
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -131,6 +137,8 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+          
+                 
 STATIC_URL = '/static/'
 STATIC_DIRS = (os.path.join(BASE_DIR, 'static'))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9e3upeg!-$$uk#d5x1dk9v1f=8ie+5adsnru1+ywsanmdt@@&9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['smdb14.herokuapp.com', '127.0.0.1'']
 
 
 # Application definition
@@ -131,6 +131,10 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)             
+                 
 STATIC_URL = '/static/'
 STATIC_DIRS = (os.path.join(BASE_DIR, 'static'))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card-body">
+    <div class="create"
+        <div class="card">
+            <h2><b>Add Mark</b></h2>
+            <form method="post">
+                {% csrf_token  %}
+                <p>{{form.as_p}}</p>
+                <input type= submit value="Create" class="btn btn-success">
+            </form>
+        </div>
+    <h2><b>Students Marks</b></h2>
+    {% for item in items %}
+            <div class="card">
+                <div class="card-body">
+                    <p><b>Student Name:</b> {{item.name}}</p>
+                    <p><b>English:</b> {{item.english}}</p>
+                    <p><b>Maths:</b> {{item.maths}}</p>
+                    <p><b>Science:</b> {{item.science}}</p>
+                    <p><b>Elective:</b> {{item.elective}}</p>
+                    <a href="{% url 'apiupdate_mark' item.id %}" class="btn btn-info">Update</a><br>
+                </div>
+            </div><br>
+    {% endfor %}
+{% endblock %}
+</div>

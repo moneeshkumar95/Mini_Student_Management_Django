@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management Database</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+                background: linear-gradient(90deg, #FAFAFA 10% , #FAFAFA 80%);
+
+            }
+        .collapse.navbar-collapse{align:right;}
+
+        .card{
+            width: 900px;
+            background-color: #F3FEFF ;
+            text-align:center;
+        }
+        .create{
+            margin-top:30px;
+            width: 400px;
+            background-color: #F3FEFF ;
+            float:right;
+            text-align:center;
+        }
+
+        .navbar-brand{font-size: 19px; font-weight: 799; }
+        .btn{font-weight:799; font-size: 15px;}
+        h1,h2{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+{% block sidebar %}
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-info">
+        <div class="container-fluid">
+            <a class="navbar-brand mb-1 h3 " href="/">Flendzz Student Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto mb-2 mb-lg-0 ">
+                            <li class="nav-item">
+                                <a class="btn btn-info" aria-current="page" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-info" aria-current="page" href="{% url 'apiadd_mark' %}">Add Marks</a>
+                            </li>
+                </div>
+            </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>
